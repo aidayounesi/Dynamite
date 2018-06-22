@@ -1,4 +1,15 @@
-const Rules = require('./Rules');
+// possible moves in this game, always D should be at the end
+const gameMoves = ['R', 'P', 'S', 'W', 'D'];
+const maxNoDynamites = 100;
+const maxPoints = 1000;
+const maxRounds = 2500;
+// each move can be beaten by some moves
+const beatenBy = {
+    'R':['P', 'D'],
+    'P':['S', 'D'],
+    'S':['R', 'D'],
+    'W':['R', 'P', 'S'],
+    'D':['W']};
 
 class Bot {
     constructor() {
@@ -19,10 +30,10 @@ class Bot {
 
 
     decideMyMove(oppPredMove) {
-        let myPossibleMoves = Rules.beatenBy[oppPredMove];
+        let myPossibleMoves = beatenBy[oppPredMove];
 
         //if maximum number of dynamites has been reached remove 'D' from the possible moves (if there is any D)
-        if (this.usedDynamite >= Rules.maxNoDynamites) {
+        if (this.usedDynamite >= maxNoDynamites) {
             let indD = myPossibleMoves.indexOf('D');
             if (indD > -1)
                 myPossibleMoves.splice(indD, 1);
@@ -39,10 +50,10 @@ class Bot {
      * @return {string}
      */
     predictOpponentNextMove(n) {
-        let possibleMoves = Rules.gameMoves;
+        let possibleMoves =  gameMoves;
         let oppUsedDynamite = Bot.occurrences(this.opponentStr, 'D', false);
         // if max number of dynamites has been reached remove it from opponent's possible moves
-        if (oppUsedDynamite >= Rules.maxNoDynamites)
+        if (oppUsedDynamite >=  maxNoDynamites)
             possibleMoves = possibleMoves.slice(0, possibleMoves.length-1);
 
         let maxProbability = -1;

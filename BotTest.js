@@ -1,4 +1,5 @@
-const Rules = require('./Rules');
+const gameMoves = ['R', 'P', 'S', 'W', 'D']; // possible moves in this game, always D should be at the end
+const maxNoDynamites = 100;
 
 class BotTest {
     constructor() {
@@ -9,10 +10,10 @@ class BotTest {
     }
 
     getRandomMove() {
-        let possibleMoves = Rules.gameMoves;
+        let possibleMoves = gameMoves;
 
         // if max number of dynamites has been reached remove it from possible moves
-        if (this.usedDynamite >= Rules.maxNoDynamites)
+        if (this.usedDynamite >= maxNoDynamites)
             possibleMoves = possibleMoves.slice(0, possibleMoves.length-1);
 
         // randomly select a move from possible moves
