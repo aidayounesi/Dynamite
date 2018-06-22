@@ -14,13 +14,13 @@ const beatenBy = {
 class Bot {
     constructor() {
         this.usedDynamite = 0;
+        this.opponentStr = '';
     }
 
     makeMove(gamestate) {
-        let predictedOppMove = Bot.predictNextMove(Bot.getStrMoves(gamestate, 'p2'), 1);
-        let myPredictedMove = Bot.predictNextMove(Bot.getStrMoves(gamestate, 'p1'), 1)
-
-        let myMove = this.decideMyMove(predictedOppMove, myPredictedMove);
+        this.setStrOpponentMoves(gamestate);
+        let predictedOppMove = this.predictOpponentNextMove(1);
+        let myMove = this.decideMyMove(predictedOppMove);
 
         if (myMove === 'D')
             this.usedDynamite++;
@@ -29,8 +29,8 @@ class Bot {
     }
 
 
-    decideMyMove(oppPredMove, myPredMove) {
-        let myPossibleMoves = beatenBy[oppPredMove].slice(0); //clone it to new array
+    decideMyMove(oppPredMove) {
+        let myPossibleMoves = beatenBy[oppPredMove];
 
         //if maximum number of dynamites has been reached remove 'D' from the possible moves (if there is any D)
         if (this.usedDynamite >= maxNoDynamites) {
@@ -39,28 +39,19 @@ class Bot {
                 myPossibleMoves.splice(indD, 1);
         }
 
-        // if there are more than one possible moves, remove my predicted move, so I won't play so predictably
-        if (myPossibleMoves.length > 1) {
-            let ind = myPossibleMoves.indexOf(myPredMove);
-            if (ind > -1)
-                myPossibleMoves.splice(ind, 1);
-        }
-        // console.log('opp move: '+oppPredMove+'\t my predicted move: '+myPredMove+'\t'+myPossibleMoves+'\t'+ move)
-
         //for now choose randomly between possible moves based on opponent predicted move
         return myPossibleMoves[Math.floor(Math.random()*myPossibleMoves.length)];
     }
 
 
     /**
-     * predict the player move based on his last n moves
-     * @param gamestatStr history of moves that has been made by the player
+     * predict the opponent move based on his last n moves
      * @param n
      * @return {string}
      */
-    static predictNextMove(gamestatStr, n) {
+    predictOpponentNextMove(n) {
         let possibleMoves =  gameMoves;
-        let oppUsedDynamite = Bot.occurrences(gamestatStr, 'D', false);
+        let oppUsedDynamite = Bot.occurrences(this.opponentStr, 'D', false);
         // if max number of dynamites has been reached remove it from opponent's possible moves
         if (oppUsedDynamite >=  maxNoDynamites)
             possibleMoves = possibleMoves.slice(0, possibleMoves.length-1);
@@ -69,8 +60,8 @@ class Bot {
         let predictedMove = '';
         //iterate over all possible moves, predict the one is more probable given his last n moves
         for (let i in possibleMoves) {
-            let lastNMoves = gamestatStr.substring(gamestatStr.length-n);
-            let probability = Bot.conditionalProbability(gamestatStr, possibleMoves[i], lastNMoves);
+            let lastNMoves = this.opponentStr.substring(this.opponentStr.length-n);
+            let probability = Bot.conditionalProbability(this.opponentStr, possibleMoves[i], lastNMoves);
             if (probability > maxProbability) {
                 maxProbability = probability;
                 predictedMove = possibleMoves[i];
@@ -94,16 +85,15 @@ class Bot {
     }
 
     /**
-     * @param {JSON} gamestate
-     * @param {string} playerName 'p1' or 'p2'
-     * @return {string} all the p1 or p2 moves in the gamestate as a string
+     * @param gamestate
+     * set the this.opponentStr equals to to all the p2 or opponent moves in the gamestate
      */
-    static getStrMoves(gamestate, playerName) {
+    setStrOpponentMoves(gamestate) {
         let oppMoves = '';
         for (let i in gamestate.rounds) {
-            oppMoves += gamestate.rounds[i][playerName];
+            oppMoves += gamestate.rounds[i].p2;
         }
-        return oppMoves;
+        this.opponentStr = oppMoves;
     }
 
     /** Function that count occurrences of a substring in a string;

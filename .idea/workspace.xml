@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dc9c2ad4-5e6e-4fe1-9375-c599b993add2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/Bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/Bot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BotTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/BotTest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rules.js" beforeDir="false" afterPath="$PROJECT_DIR$/Rules.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,20 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Rules.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Rules.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bot.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Bot.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-646">
-              <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+            <state relative-caret-position="442">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -43,11 +32,22 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="LastBot.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LastBot.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="534">
+              <caret line="128" column="24" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>occurrences</find>
+      <find>oppo</find>
+      <find>splice</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -60,6 +60,7 @@
         <option value="$PROJECT_DIR$/BotTest.js" />
         <option value="$PROJECT_DIR$/Rules.js" />
         <option value="$PROJECT_DIR$/Bot.js" />
+        <option value="$PROJECT_DIR$/LastBot.js" />
       </list>
     </option>
   </component>
@@ -79,9 +80,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="954" />
-    <option name="width" value="972" />
-    <option name="height" value="1166" />
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="968" />
+    <option name="height" value="608" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -185,12 +187,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1529658504837</updated>
-      <workItem from="1529658508049" duration="8539000" />
+      <workItem from="1529658508049" duration="12065000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8539000" />
+    <option name="totallyTimeSpent" value="12065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -205,11 +207,11 @@
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32987747" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32987747" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -235,13 +237,6 @@
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/BotTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Rules.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -249,10 +244,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BotTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Bot.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-646">
-          <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+        <state relative-caret-position="442">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LastBot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="128" column="24" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
         </state>
       </provider>
     </entry>
